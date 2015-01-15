@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+
+
+
+
+<script id="before-content" type="text/javascript">
+(function () {
+    if (typeof window.sdmedia !== 'object') window.sdmedia = {};
+    if (typeof window.sdmedia.site !== 'object') window.sdmedia.site = {};
+
+    var site = window.sdmedia.site;
+    site.rootdir = "//slashdot.org";
+}());
+
+var pageload = {
+	pagemark: '189166668210278417',
+	before_content: (new Date).getTime()
+};
+function pageload_done( $, console, maybe ){
+	pageload.after_readycode	= (new Date).getTime();
+	pageload.content_ready_time	= pageload.content_ready - pageload.before_content;
+	pageload.script_ready_time	= pageload.after_readycode - pageload.content_ready;
+	pageload.ready_time		= pageload.after_readycode - pageload.before_content;
+	// Only report 1% of cases.
+	maybe || (Math.random()>0.01) || $.ajax({ data: {
+		op: 'page_profile',
+		pagemark: pageload.pagemark,
+		dom: pageload.content_ready_time,
+		js: pageload.script_ready_time
+	} });
+}
+</script>
+
+
+	<title>Slashdot: News for nerds, stuff that matters</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+	<meta property="fb:admins" content="100000696822412">
+	<meta property="fb:page_id" content="267995220856">
+
+	<meta name="viewport" content="width=1000, user-scalable=yes, minimum-scale=0, maximum-scale=10.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+
+<!--[if IE 8]><link rel="stylesheet" type="text/css" media="screen, projection" href="//a.fsdn.com/sd/ie8-classic.css?release_20150113" ><![endif]-->
+<link rel="stylesheet" type="text/css" media="screen, projection" href="//a.fsdn.com/sd/classic.css?release_20150113" >
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen, projection" href="//a.fsdn.com/sd/ie7-classic.css?release_20150113" ><![endif]-->
+
+
+
+
+
+
+
+<!--  -->
+
+
+
+
+
+<!-- SMACKS: NEW CSS -->
+<link rel="stylesheet" href="//a.fsdn.com/sd/css/app.css?release_20150113">
+
+	<!-- <meta http-equiv="refresh" content="1200000"> -->
+	<script src="//a.fsdn.com/sd/autorefresh-query.js?release_20150113"></script>
+	<script>
+		// Set Timeout to reload the page and trigger the manageQueryStringParam function
+		setTimeout(function(){
+			window.location = manageQueryStringParam('source', 'autorefresh');
+		}, 1200000);
+	</script>
+
+
+
+<script src="//a.fsdn.com/sd/all-minified.js?release_20150113" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+(function(){
+var regexp=/\s*(?:\d+|many)\s+more\s*/i;
+
+	
+	var auto_more_count = 1;
+
+	function auto_more(){
+		var $more_link = $('#more-experiment a');
+		$more_link.each(function(){
+			var $lastitem = $('#firehoselist>article.fhitem:visible:last');
+			if ( Bounds.intersect(window, $lastitem) ) {
+			
+			
+				!--auto_more_count && (auto_more=undefined);
+				// don't allow a call till the next paginate gets built and |more_possible|
+				$(document).unbind('scroll', call_auto_more);
+			}
+		});
+	};
+
+	function call_auto_more(){ auto_more && auto_more(); }
+	
+
+$('#more-experiment a').
+	live('more-possible', function( event ){
+		var $more_link=$(this);
+		if ( regexp.test($more_link.text()) ) {
+		
+			$(document).bind('scroll', call_auto_more);
+		} else {
+			$(document).unbind('scroll', call_auto_more);
+		
+		}
+	});
+})();
+</script>
+<!--[if lt IE 9]><script src="//a.fsdn.com/sd/html5.js"></script><![endif]-->
+
+
+<script type="text/javascript">
+(function() {
+    if (typeof window.janrain !== 'object') window.janrain = {};
+    if (typeof window.janrain.settings !== 'object') window.janrain.settings = {};
+    
+    /* _______________ can edit below this line _______________ */
+
+    janrain.settings.tokenUrl = 'https://slashdot.org/token_callback.pl';
+    janrain.settings.type = 'embed';
+    janrain.settings.appId = 'ggidemlconlmjciiohla';
+    janrain.settings.appUrl = 'https://login.slashdot.org';
+    janrain.settings.providers = ["google","twitter","facebook", "linkedin"];
+    janrain.settings.providersPerPage = '4';
+    janrain.settings.format = 'one column';
+    janrain.settings.actionText = 'Sign in using your account with';
+    janrain.settings.showAttribution = false;
+    janrain.settings.fontColor = '#666666';
+    janrain.settings.fontFamily = 'lucida grande, Helvetica, Verdana, sans-serif';
+    janrain.settings.backgroundColor = '#ffffff';
+    janrain.settings.width = '308';
+    janrain.settings.borderColor = '#C0C0C0';
+    janrain.settings.borderRadius = '5';    janrain.settings.buttonBorderColor = '#CCCCCC';
+    janrain.settings.buttonBorderRadius = '5';
+    janrain.settings.buttonBackgroundStyle = 'gradient';
+    janrain.settings.language = 'en';
+    janrain.settings.linkClass = 'janrainEngage';
+
+    /* _______________ can edit above this line _______________ */
+
+    function isReady() { janrain.ready = true; };
+    if (document.addEventListener) {
+      document.addEventListener("DOMContentLoaded", isReady, false);
+    } else {
+      window.attachEvent('onload', isReady);
+    }
+
+    var e = document.createElement('script');
+    e.type = 'text/javascript';
+    e.id = 'janrainAuthWidget';
+
+    if (document.location.protocol === 'https:') {
+      e.src = 'https://rpxnow.com/js/lib/login.slashdot.org/engage.js';
+    } else {
+      e.src = 'http://widget-cdn.rpxnow.com/js/lib/login.slashdot.org/engage.js';
+    }
+
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(e, s);
+})();
+</script>
+
+<script type="text/javascript">
+(function() {
+    if (typeof window.janrain !== 'object') window.janrain = {};
+    if (typeof window.janrain.settings !== 'object') window.janrain.settings = {};
+    if (typeof window.janrain.settings.share !== 'object') window.janrain.settings.share = {};
+    if (typeof window.janrain.settings.packages !== 'object') janrain.settings.packages = [];
+    janrain.settings.packages.push('share');
+
+    /* _______________ can edit below this line _______________ */
+
+    janrain.settings.share.providers = ["facebook","twitter","linkedin"];
+    janrain.settings.share.providersEmail = [];
+    janrain.settings.share.modes = ["broadcast","contact"];
+    janrain.settings.share.attributionDisplay = false;
+    janrain.settings.share.message = "";
+    janrain.settings.share.title = "";
+    janrain.settings.share.url = "";
+    janrain.settings.share.description = "";
+
+    // Modal Styles
+    janrain.settings.share.modalBackgroundColor = "#000000";
+    janrain.settings.share.modalBorderRadius = "5";
+    janrain.settings.share.modalOpacity = "0.5";
+    janrain.settings.share.modalWidth = "5";
+
+    // Body Styles
+    janrain.settings.share.bodyBackgroundColor = "#009DDC";
+    janrain.settings.share.bodyBackgroundColorOverride = false;
+    janrain.settings.share.bodyColor = "#333333";
+    janrain.settings.share.bodyContentBackgroundColor = "#ffffff";
+    janrain.settings.share.bodyFontFamily = "Helvetica";
+    janrain.settings.share.bodyTabBackgroundColor = "#f8f8f8";
+    janrain.settings.share.bodyTabColor = "#000000";
+
+    // Element Styles
+    janrain.settings.share.elementBackgroundColor = "#f6f6f6";
+    janrain.settings.share.elementBorderColor = "#cccccc";
+    janrain.settings.share.elementBorderRadius = "3";
+    janrain.settings.share.elementButtonBorderRadius = "6";
+    janrain.settings.share.elementButtonBoxShadow = "3";
+    janrain.settings.share.elementColor = "#333333";
+    janrain.settings.share.elementHoverBackgroundColor = "#eeeeee";
+    janrain.settings.share.elementLinkColor = "#009DDC";
+
+    /* _______________ can edit above this line _______________ */
+
+    function isReady() { janrain.ready = true; };
+    if (document.addEventListener) {
+        document.addEventListener("DOMContentLoaded", isReady, false);
+    } else {
+        window.attachEvent('onload', isReady);
+    }
+
+    var e = document.createElement('script');
+    e.type = 'text/javascript';
+    e.id = 'janrainWidgets';
+
+    if (document.location.protocol === 'https:') {
+      e.src = 'https://rpxnow.com/js/lib/login.slashdot.org/widget.js';
+    } else {
+      e.src = 'http://widget-cdn.rpxnow.com/js/lib/login.slashdot.org/widget.js';
+    }
+
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(e, s);
+})();
+
+$(document).ready(function(){
+    if(janrain) {
+        $("a.janrain").live('click', function () {
+
+            var $anchor = $(this);
+            var provider = $anchor.attr("data-provider");
+            var url = $anchor.attr("data-url");
+            var message = $anchor.attr("data-message");
+            var title = $anchor.attr("data-title");
+
+            janrain.engage.share.reset();
+            janrain.engage.share.showProvider(provider);
+            janrain.engage.share.setTitle(title);
+            janrain.engage.share.setMessage(message);
+            janrain.engage.share.setUrl(url);
+            janrain.engage.share.show();
+            return false;
+         });
+    }
+});
+
+
+</script>
+<!-- TABOOLA -->
+<script type="text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({home:'auto'});
+  !function (e, f, u) {
+    e.async = 1;
+    e.src = u;
+    f.parentNode.insertBefore(e, f);
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  'http://cdn.taboola.com/libtrc/slashdot/loader.js');
+</script>
+<meta http-equiv="X-XRDS-Location" content="http://slashdot.org/slashdot.xrds"><link rel="top"       title="News for nerds, stuff that matters" href="//slashdot.org/" >
+<link rel="search"    title="Search Slashdot" href="//slashdot.org/search.pl">
+<link rel="alternate" title="Slashdot RSS" href="http://rss.slashdot.org/Slashdot/slashdot" type="application/rss+xml">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!-- load GPT library: asynchronous -->
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+	var gads = document.createElement('script');
+	gads.async = true;
+	gads.type = 'text/javascript';
+	var useSSL = 'https:' == document.location.protocol;
+	gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+	var node = document.getElementsByTagName('script')[0];
+	node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+
+
+<!-- prep GPT ads -->
+<script type='text/javascript'>
+(function() {
+	function page_type (loc) {
+		/*
+		only four page types:
+		- Story
+		- Poll
+		- Homepage (/ only)
+		- Other (but AdOps wants 'Homepage' again)
+		*/
+		var path = loc.pathname;
+		var just_the_root = /^\/?$/.test(path);
+		var story_or_poll = /^\/(story|submission|poll)\//i.exec(path);
+
+		var page_type = just_the_root ? 'homepage'
+		              : story_or_poll ? story_or_poll[1]
+		              :                 'other'
+
+		// exceptions
+		page_type = page_type.toLowerCase() === 'submission'
+		          ? 'story'  // submissions are like stories, right?
+		          : page_type
+		page_type = page_type.toLowerCase() === 'other'
+		          ? 'homepage'  // this one might move out of here
+		          : page_type;
+
+		return page_type;
+	}
+	function page_section (loc) {
+		var greek = ['alpha', 'beta', 'gamma', 'delta'].join('|');
+		var hostwise = '^([a-z]+)(?:-(?:'+greek+'))?\\.(?:slashdot\\.org|[a-z]+-[0-9]+\\.sb\\.sf\\.net)$';
+		var pathwise = '^/(?:(recent|popular|blog)|stories/([^/]+))';
+		var rootwise = '^\/?$';
+
+		var hostwisely = new RegExp(hostwise,'i').exec(loc.hostname);
+		var pathwisely = new RegExp(pathwise,'i').exec(loc.pathname);
+		var rootwisely = new RegExp(rootwise,'i').exec(loc.pathname);
+
+		var all_greek_to_me = new RegExp( '^(' + greek + ')$' ,'i');
+
+		function no_greek_for_me (barbarian) {
+			return all_greek_to_me.test(barbarian)
+			     ? false
+			     : barbarian
+			     ;
+		}
+
+		var section = (hostwisely && no_greek_for_me(hostwisely[1]))
+		           || (rootwisely && 'homepage')
+		           || (pathwisely && (pathwisely[1] || pathwisely[2]))
+		           || ''
+		            ;
+
+                section.replace(/[^_a-z]/ig, '');
+
+		return section;
+	}
+	function single_size (size) {
+		return '' + size[0] + 'x' + size[1];
+	}
+	function sz_sz (sz) {
+		var str = '';
+		var sizes = [];
+		if (sz[0] instanceof Array) {
+			for (size in sz) {
+				sizes.push(single_size(sz[size]));
+			}
+			return sizes.join(',');
+		} else {
+			return single_size(sz);
+		}
+	}
+
+	function merge_tpc_array_to_str(array1,array2) {
+		var tpc_final = array1.concat(array2);
+		var uniq = tpc_final.reduce(function(a,b){
+		if (a.indexOf(b) < 0 ) a.push(b);
+			return a;
+		},[]);
+
+		var tpc_str = uniq.join(',');
+		tpc_str = tpc_str.replace(/[^_a-z,]/ig, '');
+		tpc_str = tpc_str.replace(/^,/ig, '');
+		return tpc_str;
+	}
+
+	/* LEGEND:
+		- 'sz' = "size"
+		- 'npt' = "no page type" in ad unit name
+		- 'oops' = "out-of-page slot" for great justice
+	*/
+	var tags = {
+
+		               '728x90_A': { 'sz': [[728, 90], [970, 90], [970, 250], [980, 66]] }
+
+		,              '728x90_B': { 'sz': [728, 90] }
+		,      'HubIcon_200x90_A': { 'sz': [[200, 90], [220, 90]]}
+		,  'PowerSwitch_980x66_A': { 'sz': [980, 66] }
+		,              'PollPeel': { 'sz': [200, 90] }
+		,   'VideoWidget_300x250': { 'sz': [300, 250], 'npt': 1 }
+		,             '300x250_A': { 'sz': [[300, 250], [300, 600], [300, 1050]] }
+		,             '300x250_B': { 'sz': [[300, 250], [300, 600]] }
+		,             '300x250_C': { 'sz': [[300, 250], [300, 600]] }
+		,             '300x250_D': { 'sz': [[300, 250], [300, 600]] }
+		,       'Pulse_300x600_A': { 'sz': [300, 600] }
+		,										'1x1': { 'sz': [1, 1] }
+		//,					 'SD_Story_1x1': { 'sz': [1, 1] }
+	};
+
+	var network_path = '/4140/ostg.slashdot/';
+	var tag_name_prefix = 'SD';
+	var tag_name_linkage = '_';
+	var tag_name_pagetype = page_type(location);
+	var tag_topic = page_section(location);
+
+	var before_tag_pagetyped    = network_path
+	                            + tag_name_prefix
+	                            + tag_name_linkage
+	                            + tag_name_pagetype
+	                            + tag_name_linkage
+	                            ;
+	var before_tag_pagetypeless = network_path
+	                            + tag_name_prefix
+	                            + tag_name_linkage
+	                         /* + tag_name_pagetype */
+	                         /* + tag_name_linkage */
+	                            ;
+
+
+	googletag.cmd.push(function() {
+		function define_me_a_slot (tag, oops) {
+			var sandbox_regex = /[a-z]+-[0-9]+\.sb\.sf\.net$/i;
+			var beta_regex = /\b(alpha|beta|gamma|delta)\b/i;
+			var full_name = tags[tag].npt  // "no page type"
+			              ? before_tag_pagetypeless + tag
+			              : before_tag_pagetyped    + tag
+			              ;
+			var div_id = 'div-gpt-ad-' + tag.toLowerCase();
+
+			var service;
+			if (oops) {  // out-of-page slot
+				console.log(full_name + ": define out of page slot (" + div_id + "-oops)");
+				service = googletag.defineOutOfPageSlot(
+					  full_name
+					, div_id + '-oops'
+				).addService(googletag.pubads());
+			} else {
+				console.log(full_name + ": define slot (" + div_id + ")");
+				service = googletag.defineSlot(
+					  full_name
+					, tags[tag].sz
+					, div_id
+				).addService(googletag.pubads());
+			}
+			if (!oops) {  // no sizes for out-of-page slots
+				service.setTargeting('sz', tags[tag].sz);
+			}
+
+			
+			var frontend_tpc = tag_topic.split(",");
+			var backend_tpc = [  ];
+
+			var tpc_final = merge_tpc_array_to_str(frontend_tpc,backend_tpc);
+
+			service.setTargeting('tpc', tpc_final);
+			if (location.hostname.match(sandbox_regex)) {
+				service.setTargeting('test', 'adops');
+			}
+			if (location.hostname.match(beta_regex)) {
+				service.setTargeting('site', 'beta');
+			}
+
+			// this is a little hackish: if slot has oops:1
+			//  then do the same slot one more time,
+			//  but set it up as out-of-page
+			if (tags[tag].oops) {  // "out-of-page slot"
+				tags[tag].oops = 0;  // infinite recursion!
+				define_me_a_slot(tag, true);
+			}
+		}
+
+		for (tag in tags) {
+			define_me_a_slot(tag, false);
+		}
+
+		googletag.pubads().enableAsyncRendering();
+
+		//googletag.pubads().enableSingleRequest();
+		googletag.pubads().collapseEmptyDivs();
+		googletag.enableServices();
+	});
+})();
+</script>
+
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-32013-5";
+
+var _gaq = _gaq || [];
+
+
+
+
+
+  _gaq.push(['_setAccount', 'UA-36136016-1']);
+  _gaq.push(['b._setAccount', 'UA-32013-5']);
+  _gaq.push(['_setDomainName', '.slashdot.org']);
+  _gaq.push(['b._setDomainName', '.slashdot.org']);
+
+	
+		_gaq.push(['_addIgnoredRef', 'slashdot.org']);
+		_gaq.push(['b._addIgnoredRef', 'slashdot.org']);
+	
+
+
+  _gaq.push(['_setCustomVar', 1, 'User Type',  'Anon', 3]);
+  _gaq.push(['b._setCustomVar', 1, 'User Type',  'Anon', 3]);
+	
+	_gaq.push(['_setCustomVar', 2, 'Page','index2', 3]);
+	_gaq.push(['b._setCustomVar', 2, 'Page','index2', 3]);
+
+	
+
+
+
+// track beta behavior for user
+var betamatches = document.cookie.match(/betagroup=(-?\d+)/);
+
+if(betamatches && betamatches[1]) {
+  if(betamatches[1] == -1) {
+    _gaq.push(['_setCustomVar', 3, 'Beta-Usage','opt-out', 3]);
+  } else {
+    _gaq.push(['_setCustomVar', 3, 'Beta-Usage','unredirected', 3]);
+  }
+}
+
+
+
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['b._trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+  _gaq.push(['b._trackPageLoadTime']);
+
+
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+<body class="anon index2 ">
+
+
+    <div id="top_parent"></div>
+    <a name="topothepage"></a>
+
+    <!-- <div id="topadspace">
+        <table id="topadtable"><tr><td>
+        <div id='div-gpt-ad-728x90_a'><script type='text/javascript'>
+googletag.cmd.push(function(){
+googletag.display('div-gpt-ad-728x90_a');});</script></div>
+        <div id='div-gpt-ad-728x90_a-oops'><script type='text/javascript'>
+googletag.cmd.push(function(){
+googletag.display('div-gpt-ad-728x90_a-oops');});</script></div>
+        </td>
+        <td>
+        <div id='div-gpt-ad-hubicon_200x90_a'><script type='text/javascript'>
+googletag.cmd.push(function(){
+googletag.display('div-gpt-ad-hubicon_200x90_a');});</script></div>
+        </td></tr></table>
+    </div> -->
+
+    <header class="col_wrapper container clearfix h">
+        <hgroup>
+            <section class="grid_9">
+                <div id="logo" >
+                    <a href="//slashdot.org"><span>Slashdot</span></a>
+                    <div id="jump" class="hide">
+                            <a href="#main-articles">Stories</a><br>
+                            <a href="#blocks">Slash Boxes</a><br>
+                            <a href="#comments">Comments</a>
+                    </div>
+                </div>
+                <a class='data-title' href='/slash-stats/week' id='sg_hof_mvtest_title' onclick="showHof('week'); return false;"><span class='ui-icon medal ico-w'></span></a>
+                
+                
+
+                <form id="search" method="get" action="//slashdot.org/index2.pl">
+                    <input type="text" name="fhfilter" value="" id="searchquery">
+                    <span class="ui-icon search"></span>
+                    <input type="submit" value="Search">
+                    
+                </form>
+                
+                
+            </section>
+            <nav role="top-navigation" class="grid_15">
+                <ul class="dropnav">
+
+	<li >
+		<a href="//slashdot.org/my/newuser"   onclick="getModalPrefs('newUserModal', 'Create Account', 1); $('#modal_box').addClass('join'); return false;">Join</a>
+		
+	</li>
+
+	<li >
+		<a href="//slashdot.org/my/login"   onclick="show_login_box(); return false;">Login</a>
+		
+	</li>
+
+	<li >
+		<a href="//slashdot.org/submission"    title="Submit a Story to Slashdot">Submit</a>
+		
+	</li>
+
+	<li >
+		<a href="http://beta.slashdot.org/newsletter"  target="_blank"  title="Subscribe to Slashdot Newsletter & Emails">Newsletter</a>
+		
+	</li>
+
+	<li >
+		<a href="//slashdot.org/job_board.pl"   >Jobs</a>
+		
+	</li>
+
+	<li >
+		<a href="//tv.slashdot.org" class="btn link slashtvico"  ><span>SlashTV</span></a>
+		
+	</li>
+
+	<li >
+		<a href="http://deals.slashdot.org"  target="_blank" ><span class="sd-mini-logo"></span> Deals <span class="new-tag">new</span></a>
+		
+	</li>
+
+</ul>
+
+
+<!-- dropnavstyle begin -->
+<style type="text/css">
+
+.dropnav{
+	border:none;
+	border:0px;
+	margin:0px;
+	padding:0px;
+	font: "Arial, sans-serif;
+	font-size:1em;
+	font-weight:bold;
+	list-style:none;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	}
+.dropnav ul{
+	padding-top:10px;
+	background:none;
+	height:25px;
+	list-style:none;
+	margin:0;
+	padding:0;
+	}
+	.dropnav li{
+		float:right;
+		padding:0px;
+		}
+	.dropnav li a{
+		background:none bottom right no-repeat;
+		color:#ffffff;
+		display:block;
+		font-weight:normal;
+		line-height:25px;
+		margin:0px;
+		padding:0px 5px;
+		padding-bottom: 6px;
+		text-align:center;
+		text-decoration:none;
+		}
+		.dropnav li a:hover, .dropnav ul li:hover a{
+			 /* background: #005555 bottom center no-repeat; */
+				color:#FFFFFF;
+				text-decoration:underline;
+			}
+	.dropnav li ul{
+		background:#004242;
+		display:none;
+		height:auto;
+		min-width:100px;
+		margin:0px;
+		padding:0px;
+		border:0px;
+		position:absolute;
+		z-index:200;
+		/*top:1em;
+		/*left:0;*/
+		}
+	.dropnav li:hover ul{
+		display:block;
+
+		}
+	.dropnav li li {
+		display:block;
+		float:none;
+		min-width:100px;
+		margin:0px;
+		padding:0px;
+		}
+	.dropnav li:hover li a{
+		background:none;
+
+		}
+	.dropnav li ul a{
+		display:block;
+		height:25px;
+		font-size:12px;
+		font-style:normal;
+		margin:0px;
+		padding:0px 10px 0px 15px;
+		text-align:left;
